@@ -1,39 +1,27 @@
 using System;
 
-class Program
+namespace TicketPriceCalculator
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.Write("Enter your age: ");
-        string input = Console.ReadLine();
-
-        if (int.TryParse(input, out int age))
+        static void Main(string[] args)
         {
-            if (age < 0)
+            Console.Write("Enter your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            double ticketPrice;
+
+            if (age <= 12 || age >= 65)
             {
-                Console.WriteLine("Invalid input. Please enter a valid age.");
+                ticketPrice = 7.0;
             }
             else
             {
-                double ticketPrice;
-
-                if (age >= 65 || age <= 12)
-                {
-                    ticketPrice = 7.0;
-                }
-                else
-                {
-                    ticketPrice = 10.0;
-                }
-
-                Console.WriteLine($"The ticket price for someone of age {age} is GHC{ticketPrice}.");
+                ticketPrice = 10.0;
             }
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid age.");
-        }
 
-        Console.ReadLine();
+            Console.WriteLine($"Your ticket price is GHC{ticketPrice:F2}");
+            Console.ReadLine();
+        }
     }
 }
