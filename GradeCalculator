@@ -1,51 +1,36 @@
 using System;
 
-class Program
+namespace GradeCalculator
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.Write("Enter a numerical grade between 0 and 100: ");
-        string input = Console.ReadLine();
-
-        if (int.TryParse(input, out int grade))
+        static void Main(string[] args)
         {
-            if (grade < 0 || grade > 100)
+            Console.WriteLine("Please enter your score between 0 and 100:");
+            double testScore = Convert.ToDouble(Console.ReadLine());
+
+            if (testScore >= 90)
             {
-                Console.WriteLine("Invalid input. Please enter a number between 0 and 100.");
+                Console.WriteLine("A");
+            }
+            else if (testScore >= 80)
+            {
+                Console.WriteLine("B");
+            }
+            else if (testScore >= 70)
+            {
+                Console.WriteLine("C");
+            }
+            else if (testScore >= 60)
+            {
+                Console.WriteLine("D");
             }
             else
             {
-                string letterGrade;
-
-                if (grade >= 90)
-                {
-                    letterGrade = "A";
-                }
-                else if (grade >= 80)
-                {
-                    letterGrade = "B";
-                }
-                else if (grade >= 70)
-                {
-                    letterGrade = "C";
-                }
-                else if (grade >= 60)
-                {
-                    letterGrade = "D";
-                }
-                else
-                {
-                    letterGrade = "F";
-                }
-
-                Console.WriteLine($"The letter grade for {grade} is {letterGrade}.");
+                Console.WriteLine("F");
             }
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid number.");
-        }
 
-        Console.ReadLine();
+            Console.ReadLine();
+        }
     }
 }
